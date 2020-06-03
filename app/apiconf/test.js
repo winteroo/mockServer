@@ -5,6 +5,7 @@ const test = {
     res: {
       name:'zhangsan',
       auth: 0,
+      
       token: '123456qrerrwr'
     },
     hasErr: {
