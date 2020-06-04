@@ -14,10 +14,22 @@ const test = {
       data: null
     }
   },
-  '/test/:id': {
-    method: 'get',
+  '/alltest': {
+    method: 'all',
     res: {
-      flag: true
+      apply: 100,
+      output: 100,
+      look: 100,
+      send: 100,
+      receive: 100,
+      mobileVerify: {
+        verifySucceed: 100,
+        verifyError: 100
+      },
+      sentFew: {
+        smsFew: 100,
+        emailFew: 100
+      }
     }
   }
 };

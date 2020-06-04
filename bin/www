@@ -13,8 +13,9 @@ const colors = require('colors');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3300');
+var port = normalizePort(process.env.PORT || '8000');
 var host = 'localhost';
+// var host = '192.168.1.231';
 // app.set('port', port);
 
 /**
@@ -93,6 +94,6 @@ function onListening() {
   debug('Listening on ' + bind);
   console.log('')
   console.log(colors.yellow('====================================================') );
-  console.log('| ' + colors.blue('mockServer') +' is running on: ' + colors.green('http://localhost:' + port) + ' |');
+  console.log('| ' + colors.blue('mockServer') +' is running on: ' + colors.green('http://'+ host +':' + port) + ' |');
   console.log(colors.yellow('====================================================') );
 }

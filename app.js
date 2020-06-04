@@ -4,8 +4,12 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const cors = require('koa2-cors')
 
 const index = require('./app/routes/index')
+
+// 设置跨域
+app.use(cors());
 
 // error handler
 onerror(app)
