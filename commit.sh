@@ -9,4 +9,6 @@ git commit -m 'update'
 
 git push -f "https://github.com/winteroo/mockServer.git" master
 
+echo "*********全部更改已提交***********"
+
 cd -
