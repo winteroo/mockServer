@@ -6,8 +6,10 @@ const {
   ErrorModel
 } = require('../model/index')
 
+const apiDirName = 'apiConfig'
+
 const apiConf = requireAll({
-  dirname: path.join(__dirname, '..', 'apiconf') 
+  dirname: path.join(__dirname, '..', apiDirName) 
 })
 
 const apis = merge(apiConf);
