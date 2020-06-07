@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /app/apiConfig/*
+!/app/apiConfig/test.js
 .vscode
 
 # testing
