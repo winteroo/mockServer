@@ -31,6 +31,7 @@ function initRouter (routerConf) {
     let method = routerConf[keys[i]].method || 'all';
     let url = keys[i];
     let res = routerConf[keys[i]].res || {};
+    let delay = routerConf[keys[i]].delay || 0;
     // 触发错误机制
     let hasErr = routerConf[keys[i]].hasErr;
     router[method](url, async (ctx, next) => {
@@ -42,10 +43,23 @@ function initRouter (routerConf) {
         } = hasErr;
         ctx.body = new ErrorModel(data, msg, errCode);
       } else {
-        ctx.body = new SuccessModel(res);
+        let ans = res;
+        if (delay) {
+          ans = await initPromise(res, delay);
+        }
+        ctx.body = new SuccessModel(ans);
       }
     })
   }
+}
+
+function initPromise (data, delay) {
+  let num = parseInt(delay) ? parseInt(delay) : 1000;
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(data);
+    }, num);
+  })
 }
 
 router.get('/', async (ctx, next) => {
